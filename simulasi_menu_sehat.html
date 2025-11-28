@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Simulasi Rekomendasi Menu Sehat</title>
+<style>
+    body { font-family: Arial, sans-serif; padding: 30px; background: #fafafa; }
+    .box { max-width: 600px; margin: auto; background: white; padding: 20px;
+           border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    input, select, button { width: 100%; padding: 10px; margin-top: 10px; }
+    button { background: #28a745; color: white; border: none; cursor: pointer; }
+    button:hover { background: #218838; }
+    #hasil { margin-top: 20px; background: #eef; padding: 15px; border-radius: 5px; }
+    .identitas {
+        background: #e9ecef;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+</style>
+</head>
+<body>
+
+<div class="box">
+
+<h2>Simulasi Sistem Rekomendasi Menu Sehat</h2>
+
+<div class="identitas">
+    <b>Nama:</b> Frans Lampard<br>
+    <b>NIM:</b> 243303611291<br>
+    <b>Kelas:</b> 3 Pagi B<br>
+    <b>Jurusan:</b> Teknik Informatika<br>
+    <b>Dosen Pengampu:</b> Achmad Ridwan, ST, M.Si.
+</div>
+
+<label>Preferensi Makanan</label>
+<select id="preferensi">
+  <option value="tinggi_protein">Tinggi Protein</option>
+  <option value="rendah_lemak">Rendah Lemak</option>
+  <option value="vegetarian">Vegetarian</option>
+</select>
+
+<label>Aktivitas Harian</label>
+<select id="aktivitas">
+  <option value="rendah">Rendah</option>
+  <option value="sedang">Sedang</option>
+  <option value="tinggi">Tinggi</option>
+</select>
+
+<button onclick="proses()">Dapatkan Rekomendasi</button>
+
+<div id="hasil"></div>
+</div>
+
+<script>
+function proses() {
+  let pref = document.getElementById("preferensi").value;
+  let akt = document.getElementById("aktivitas").value;
+  let menu = "";
+
+  if (pref == "tinggi_protein") {
+      menu = "• Ayam panggang<br>• Ikan tuna<br>• Telur rebus";
+  } else if (pref == "rendah_lemak") {
+      menu = "• Salad sayur<br>• Sup bening<br>• Ikan kukus";
+  } else {
+      menu = "• Tahu goreng sehat<br>• Oatmeal buah<br>• Tempe tumis";
+  }
+
+  document.getElementById("hasil").innerHTML =
+      "<strong>Rekomendasi Menu:</strong><br>" + menu +
+      "<br><br><strong>Aktivitas:</strong> " + akt;
+}
+</script>
+
+</body>
+</html>
